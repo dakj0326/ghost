@@ -4,6 +4,7 @@ Set fso = CreateObject("Scripting.FileSystemObject")
 ghostDir = shell.ExpandEnvironmentStrings("%LOCALAPPDATA%") & "\Ghost"
 If Not fso.FolderExists(ghostDir) Then fso.CreateFolder(ghostDir)
 
+
 call get_from_git("https://raw.githubusercontent.com/dakj0326/ghost/main/s1.mp3", ghostDir & "\s1.mp3", 1)
 call get_from_git("https://raw.githubusercontent.com/dakj0326/ghost/main/s2.mp3", ghostDir & "\s2.mp3", 1)
 call get_from_git("https://raw.githubusercontent.com/dakj0326/ghost/main/s3.mp3", ghostDir & "\s3.mp3", 1)

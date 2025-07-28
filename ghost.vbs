@@ -2,6 +2,7 @@ Set shell = CreateObject("WScript.Shell")
 Set fso = CreateObject("Scripting.FileSystemObject")
 ghostDir = shell.ExpandEnvironmentStrings("%LOCALAPPDATA%") & "\Ghost"
 
+
 Do
     WScript.Sleep 3000  ' test delay (20 min = 1200000)
 

